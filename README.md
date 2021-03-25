@@ -3,8 +3,7 @@ The main goal of this quasi-command line shell is to allow users to effectively 
 
 ## Table of contents
 * [General Information](#general-information)
-* [File Description](#file-description)
-* [Screenshots](#screen-shots)
+* [File Description](#file-description) 
 * [Code Examples](#code-examples)
 * [Contact](#contact)
 
@@ -32,15 +31,7 @@ The key systems programming topics covered in this project:
 *commando.h* is the header file which contains required structs, defines, and prototypes;
 
 *util.c* contains utility methods for creating argv[] arrays and pausing execution; 
-
-## Screen Shots
-This screenshot is to show the output of server and several clients mid-chat.
-
-The the server umn_server is started in the leftside large terminal and shows the output about current process.
-
-There are 3 clients who log into the server and specfify their name to be Bruce, Mike and Clark.
-
-![Example screenshot](./screenshot.png)
+ 
 
 ## Code Examples
 To build the executable program commando, run:
