@@ -4,7 +4,7 @@ The main goal of this quasi-command line shell is to allow users to effectively 
 ## Table of contents
 * [General Information](#general-information)
 * [File Description](#file-description)
-* [Screenshots](#screenshots)
+* [Screenshots](#screen-shots)
 * [Code Examples](#code-examples)
 * [Contact](#contact)
 
@@ -13,26 +13,25 @@ The main goal of this quasi-command line shell is to allow users to effectively 
 The key systms programming topics covered in this project:
 
 1.Basic C Memory Discipline: Various strings and structs are allocated and de-allocated during execution which will require the utilization of memory tool Valgrind.
+
 2.fork() and exec(): The shell will execute an command (external program, not built-in) by spawning a child process to execute the new program.
+
 3.Pipes, dup2(), read(): The output from child process will not be immediately printed, instead it is redirected into pipes and then retrieved by using command.
-4. wait() and waitpid(), blocking and nonblocking: The shell will check the status of child process occasionally, as child processes will take a while to complete.
+
+4.wait() and waitpid(), blocking and nonblocking: The shell will check the status of child process occasionally, as child processes will take a while to complete.
 
 ## File Description
 *Makefile* is used for building project and running tests;
 
-*server_funcs.c* contains service routines for the server;
+*commando.c* is the main function for the interactive shell;
 
-*bl_server.c* is the main function for bl_server executable;
+*cmd.c* contains the functions to deal with the cmd_t struct;
 
-*bl_client.c* is the main function for bl_client executable;
+*cmdcol.c* contains the functions to deal with the cmdcol_t struct;
 
-*blather.h* is the header file which contains required structs, defines, and prototypes;
+*commando.h* is the header file which contains required structs, defines, and prototypes;
 
-*util.c* contains utility methods debug messages and checking system call returns;
-
-*simpio.c* is the simplified terminal I/O to get nice interactive sessions;
-
-*simpio_demo.c* is used for demostrating simpio features, model for bl_client.c.
+*util.c* contains utility methods for creating argv[] arrays and pausing execution; 
 
 ## Screen Shots
 This screenshot is to show the output of server and several clients mid-chat.
