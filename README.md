@@ -43,37 +43,30 @@ There are 3 clients who log into the server and specfify their name to be Bruce,
 ![Example screenshot](./screenshot.png)
 
 ## Code Examples
-To build the executable program bl_server and bl_client, run:
+To build the executable program commando, run:
 ```bash
 make
 ```
 which will give the following results:
 ```bash
-gcc -Wall -g  -c bl_server.c
-gcc -Wall -g  -c server_funcs.c
-gcc -Wall -g  -c util.c
-gcc -Wall -g  -o bl_server  bl_server.o server_funcs.o  util.o
-bl_server is ready
-gcc -Wall -g  -c bl_client.c
-gcc -Wall -g  -c simpio.c
-gcc -Wall -g  -o bl_client bl_client.o simpio.o util.o -lpthread 
-bl_client is ready
+gcc -Wall -g   -c commando.c
+gcc -Wall -g   -c cmd.c
+gcc -Wall -g   -c cmdcol.c
+gcc -Wall -g   -c util.c
+gcc -Wall -g   -o commando  commando.o  cmd.o cmdcol.o util.o
+commando is ready
 ```
-Run the command: 
+
+Run the command to start the shell: 
 ```bash
-./bl_server <server_name>
+./commando
 ```
-for example, 
+
+The shell will give the propmt:
 ```bash
-./bl_server umn_server
+@>
 ```
-The umn_server will start a chat room with following output
-```bash
-LOG: BEGIN: server_start()
-LOG: END: server_start()
-LOG: BEGIN: server_check_sources()
-LOG: poll()'ing to check 1 input sources
-```
+
 Run the command: 
 ```bash
 ./bl_client <server_name> <client_name>
