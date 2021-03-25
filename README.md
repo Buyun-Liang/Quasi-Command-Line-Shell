@@ -67,34 +67,48 @@ The shell will give the propmt:
 @>
 ```
 
-Run the command: 
+Type the command in the shell: 
 ```bash
-./bl_client <server_name> <client_name>
+@> help
 ```
-for example, 
+ 
+The shell will output available built-ins:
 ```bash
-./bl_client umn_server Bruce
-```
-The umn_client will join the chat room. The server side will give the following output
-```bash
-LOG: poll() completed with return value 1
-LOG: join_ready = 1
-LOG: END: server_check_sources()
-LOG: BEGIN: server_handle_join()
-LOG: join request for new client 'Bruce'
-LOG: BEGIN: server_add_client()
-LOG: END: server_add_client()
-LOG: END: server_handle_join()
-LOG: BEGIN: server_check_sources()
-LOG: poll()'ing to check 2 input sources
+COMMANDO COMMANDS
+help               : show this message
+exit               : exit the program
+list               : list all jobs that have been started giving information on each
+pause nanos secs   : pause for the given number of nanseconds and seconds
+output-for int     : print the output for given job number
+output-all         : print output for all jobs
+wait-for int       : wait until the given job number finishes
+wait-all           : wait for all jobs to finish
+command arg1 ...   : non-built-in is run as a job
 ```
 
-The client side will give the following output
+Type the command in the shell to present the running job: 
 ```bash
--- Bruce JOINED --
-Bruce>>
+@> list
 ```
-Using the same method, more clients could join the same server. The client can type the intput on the keyboard and send to the server, and the server will broadcast the message to all the other clients.
+
+Since there is no child process forked, the shell output empty job information:
+```bash
+JOB  #PID      STAT   STR_STAT OUTB COMMAND
+```
+
+Type the command in the shell to run ls on the test-data/ directory and present the running job: 
+```bash
+@> ls test-data/
+@> list
+```
+
+The shell output job information of *ls test-data/*:
+```bash
+JOB  #PID      STAT   STR_STAT OUTB COMMAND
+0    #990152       -1      RUN   -1 ls test-data/ 
+@!!! ls[#990152]: EXIT(0)
+```
+
  
 ## Contact
 Created by Buyun Liang [liang664@umn.edu] (https://www.linkedin.com/in/buyun-liang/) and Rick Wang - feel free to contact me if you have any questions!
