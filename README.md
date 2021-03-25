@@ -10,7 +10,7 @@ The main goal of this quasi-command line shell is to allow users to effectively 
 
 ## General Information
 
-The key systms programming topics covered in this project:
+The key systems programming topics covered in this project:
 
 1.Basic C Memory Discipline: Various strings and structs are allocated and de-allocated during execution which will require the utilization of memory tool Valgrind.
 
@@ -108,6 +108,39 @@ JOB  #PID      STAT   STR_STAT OUTB COMMAND
 0    #990152       -1      RUN   -1 ls test-data/ 
 @!!! ls[#990152]: EXIT(0)
 ```
+
+list agin. The shell shows the exit status and output size:
+```bash
+@> list
+JOB  #PID      STAT   STR_STAT OUTB COMMAND
+0    #990152        0    EXIT(0)   89 ls test-data/ 
+```
+show output for job 0 (ls). The shell returns the actual output of ls.
+```bash
+@> output-for 0
+@<<< Output for ls[#990152] (89 bytes):
+----------------------------------------
+3K.txt
+gettysburg.txt
+print_args
+print_args.c
+quote.txt
+README
+sleep_print
+sleep_print.c
+----------------------------------------
+```
+
+Run another child job and check the job status (JOB 0 is finshed while JOB 1 is running):
+```bash
+@> ls -l test-data/
+@> list
+JOB  #PID      STAT   STR_STAT OUTB COMMAND
+0    #990152        0    EXIT(0)   89 ls test-data/ 
+1    #991176       -1      RUN   -1 ls -l test-data/ 
+@!!! ls[#991176]: EXIT(0)
+```
+
 
  
 ## Contact
