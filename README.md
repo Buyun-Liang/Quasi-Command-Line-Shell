@@ -141,6 +141,51 @@ JOB  #PID      STAT   STR_STAT OUTB COMMAND
 @!!! ls[#991176]: EXIT(0)
 ```
 
+Run list to show two completed jobs
+```bash
+@> list
+JOB  #PID      STAT   STR_STAT OUTB COMMAND
+0    #990152        0    EXIT(0)   89 ls test-data/ 
+1    #991176        0    EXIT(0)  530 ls -l test-data/ 
+```
+
+Show output for JOB 1:
+```bash
+@> output-for 1
+@<<< Output for ls[#991176] (530 bytes):
+----------------------------------------
+total 76
+-rwx------ 1 liang664 CSEL-student 13893 Mar 25 11:11 3K.txt
+-rwx------ 1 liang664 CSEL-student  1511 Mar 25 11:11 gettysburg.txt
+-rwx------ 1 liang664 CSEL-student  8304 Mar 25 11:11 print_args
+-rwx------ 1 liang664 CSEL-student   218 Mar 25 11:11 print_args.c
+-rwx------ 1 liang664 CSEL-student   125 Mar 25 11:11 quote.txt
+-rwx------ 1 liang664 CSEL-student   184 Mar 25 11:11 README
+-rwx------ 1 liang664 CSEL-student  8496 Mar 25 11:11 sleep_print
+-rwx------ 1 liang664 CSEL-student   346 Mar 25 11:11 sleep_print.c
+----------------------------------------
+```
+
+Show output for JOB 0, which is permanently available:
+```bash
+@> output-for 0
+@<<< Output for ls[#990152] (89 bytes):
+----------------------------------------
+3K.txt
+gettysburg.txt
+print_args
+print_args.c
+quote.txt
+README
+sleep_print
+sleep_print.c
+----------------------------------------
+```
+
+Exit the shell:
+```bash
+@> exit
+```
 
  
 ## Contact
